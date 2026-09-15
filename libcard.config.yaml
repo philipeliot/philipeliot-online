@@ -80,5 +80,5 @@ cardMode:
   wakeLock: false
 
 site:
-  url: https://philipeliot.github.io
-  base: /philipeliot-online
+  url: https://philipeliot.online
+  base: /
