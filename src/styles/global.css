@@ -45,14 +45,21 @@ html {
 }
 
 /* Light typography for `text` blocks (renderMarkdown output) — no plugin. */
+.lc-prose {
+  text-align: left;
+  line-height: 1.6;
+}
+
 .lc-prose a {
   color: var(--lc-accent);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+
 .lc-prose strong {
   font-weight: 700;
 }
+
 .lc-prose code {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 0.9em;
@@ -60,8 +67,17 @@ html {
   padding: 0.1em 0.35em;
   border-radius: 0.25rem;
 }
+
 .lc-prose p + p {
-  margin-top: 0.75rem;
+  margin-top: 1rem;
+}
+
+/* A single email contact button should fill the row */
+a[href^="mailto:philipeliothello@gmail.com"] {
+  grid-column: 1 / -1;
+  flex: 1 1 100%;
+  width: 100%;
+  max-width: none;
 }
 
 /* Respect users who prefer reduced motion. */
