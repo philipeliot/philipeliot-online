@@ -23,8 +23,12 @@ links:
     url: https://bookzio.com
     icon: globe
 
-  - label: Online Publishing | Bookzio.com
+  - label: English Tutor | EnglishTutor.site
     url: https://bookzio.com
+    icon: globe
+
+  - label: Online Publishing | Bookzio.com
+    url: https://www.bookzio.com
     icon: globe
 
 blocks:
