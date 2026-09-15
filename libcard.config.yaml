@@ -37,7 +37,7 @@ blocks:
     label: About
 
   - type: heading
-    text: Words, Books, Design, Technology: Multi-Purpose Boomer
+    text: "Words, Books, Design, Technology: Multi-Purpose Boomer"
 
   - type: text
     markdown: |
