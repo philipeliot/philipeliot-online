@@ -1,0 +1,155 @@
+/* Theme effects — opt-in expressive layers driven by data in themes/*.yaml
+   (exploration 0007). A theme sets `--lc-*` vars / picks an effect by name; the
+   CSS here is owned and audited by the project. Everything degrades to today's
+   flat look when the vars are unset, so non-effect themes are unaffected.
+
+   These rules are intentionally UNLAYERED so the glass overrides win over
+   Tailwind's `bg-surface`/`border-border` utilities (layered = lower priority). */
+
+/* === Pastel-mesh background ============================================ */
+/* A dense, soft mesh: four large radial-gradient washes covering a fixed layer
+   behind everything. The dreamy softness is BAKED into eased 3-stop gradient
+   falloff — no live `filter: blur()`. Blurring an already-soft radial wash is
+   visually just a slightly-softer wash, and the live 60px blur of this
+   ~128%-viewport layer was the biggest GPU cost feeding the memory-pressure
+   layer thrash that made the frosted panels in front flicker (exploration
+   0010). Colors come from the active theme's --lc-mesh-* vars (unset →
+   transparent → just the page color, so it's safe to mount for any theme set).
+   The stage is oversized (inset: -16%) so the slow drift never reveals a hard
+   edge. */
+.lc-bg-stage {
+  position: fixed;
+  inset: -16%;
+  z-index: -2;
+  pointer-events: none;
+  background-color: var(--lc-bg);
+  background-image:
+    radial-gradient(
+      70% 65% at 12% 8%,
+      var(--lc-mesh-1, transparent) 0%,
+      color-mix(in oklab, var(--lc-mesh-1, transparent) 55%, transparent) 45%,
+      transparent 82%
+    ),
+    radial-gradient(
+      70% 65% at 88% 12%,
+      var(--lc-mesh-2, transparent) 0%,
+      color-mix(in oklab, var(--lc-mesh-2, transparent) 55%, transparent) 45%,
+      transparent 82%
+    ),
+    radial-gradient(
+      75% 70% at 16% 92%,
+      var(--lc-mesh-3, transparent) 0%,
+      color-mix(in oklab, var(--lc-mesh-3, transparent) 55%, transparent) 45%,
+      transparent 82%
+    ),
+    radial-gradient(
+      75% 70% at 90% 88%,
+      var(--lc-mesh-4, transparent) 0%,
+      color-mix(in oklab, var(--lc-mesh-4, transparent) 55%, transparent) 45%,
+      transparent 82%
+    );
+  /* No filter: the layer rasters once, then only composites. Pinning it keeps
+     the glass panels' backdrop-filter sampling a stable, always-valid texture. */
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .lc-bg-stage {
+    animation: lc-drift 30s ease-in-out infinite alternate;
+    animation-play-state: var(--lc-bg-anim, paused);
+  }
+  /* Translate-only: never triggers raster-scale management, so the layer's
+     texture is never re-rasterized mid-drift. (The old scale(1.08) rotate(2deg)
+     was the periodic re-raster trigger the panels flickered against.) */
+  @keyframes lc-drift {
+    to {
+      transform: translate3d(-3.5%, -2.5%, 0);
+    }
+  }
+}
+
+/* === Pattern texture layer ============================================= */
+/* The per-pattern recipe (gradients) is generated into themes.gen.css, scoped by
+   [data-theme] so it switches with the theme. This is the shared base + the
+   subtle edge-fade vignette. */
+.lc-pattern {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 38%, transparent 100%);
+  mask-image: radial-gradient(ellipse at center, #000 38%, transparent 100%);
+}
+
+/* === Frosted-glass surfaces ============================================ */
+/* Driven entirely by the active theme's --lc-glass-* vars: unset → opaque
+   surface + no blur (identical to a non-glass theme). We target the `bg-surface`
+   utility itself, so EVERY panel frosts together — link buttons, the social row,
+   the business-card reveal, FAQ, contact buttons, embeds, forms, the switcher.
+   The translucent fill IS the readability scrim (its opacity floor is enforced in
+   the schema); the frosted edge comes from the theme's own light border token, so
+   we don't touch border-color and never fight a `hover:border-*` utility.
+   `.lc-solid` opts an element out (the avatar fill + the physical business card). */
+.bg-surface:not(.lc-solid) {
+  background-color: color-mix(in oklab, var(--lc-surface) var(--lc-glass-pct, 100%), transparent);
+  -webkit-backdrop-filter: var(--lc-glass-filter, none);
+  backdrop-filter: var(--lc-glass-filter, none);
+}
+/* Accent CTAs (Save contact, form submits) frost too: in a glass theme they
+   become a frosted glass pill with the accent as text + ring (via --lc-cta-*),
+   so they read as part of the frosted set rather than a flat block of color. The
+   vars default to the solid accent fill + accent-contrast text, so a non-glass
+   theme is byte-identical. (SaveContact carries a transparent border so the ring
+   has somewhere to land without shifting layout — border-box, no size change.) */
+.bg-accent:not(.lc-solid) {
+  background-color: var(--lc-cta-bg, var(--lc-accent));
+  color: var(--lc-cta-fg, var(--lc-accent-contrast));
+  border-color: var(--lc-cta-border, transparent);
+  -webkit-backdrop-filter: var(--lc-glass-filter, none);
+  backdrop-filter: var(--lc-glass-filter, none);
+}
+/* Flicker guard: `backface-visibility: hidden` is the mild, documented
+   backdrop-filter flicker remedy for the hover-lift case. The earlier blanket
+   `will-change: transform` promotion (one pinned render surface per frosted
+   panel) fed the GPU-memory pressure that caused layer purge/recreate thrash —
+   with the mesh stage now cheap and translate-only (see above), the panels'
+   backdrop is stable and speculative promotion is net harmful (exploration
+   0010). */
+.bg-surface:not(.lc-solid),
+.bg-accent:not(.lc-solid) {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+/* Guards: drop the translucency where the browser/user can't do it well (the CTA
+   falls back to its solid accent fill + light text). */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .bg-surface:not(.lc-solid),
+  .bg-accent:not(.lc-solid) {
+    --lc-glass-pct: 100%;
+    --lc-glass-filter: none;
+    --lc-cta-bg: var(--lc-accent);
+    --lc-cta-fg: var(--lc-accent-contrast);
+    --lc-cta-border: transparent;
+  }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .bg-surface:not(.lc-solid),
+  .bg-accent:not(.lc-solid) {
+    --lc-glass-pct: 100%;
+    --lc-glass-filter: none;
+    --lc-cta-bg: var(--lc-accent);
+    --lc-cta-fg: var(--lc-accent-contrast);
+    --lc-cta-border: transparent;
+  }
+}
+@media (forced-colors: active) {
+  .bg-surface:not(.lc-solid),
+  .bg-accent:not(.lc-solid) {
+    --lc-glass-pct: 100%;
+    --lc-glass-filter: none;
+    --lc-cta-bg: var(--lc-accent);
+    --lc-cta-fg: var(--lc-accent-contrast);
+    --lc-cta-border: transparent;
+  }
+}

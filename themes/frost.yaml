@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=./theme.schema.json
+name: Frost
+author: "@crs48"
+authorUrl: https://github.com/crs48
+license: MIT
+official: true
+mode: light
+tags: [light, pastel, gradient, glass, soft]
+description: A soft, frosted pastel wash with translucent glass panels.
+tokens:
+  bg: "#f5f6fb" # near-white base the wash sits on
+  surface: "#ffffff" # the glass tint (and the opaque fallback)
+  fg: "#2c2740" # dark ink → easily readable on the pale glass
+  muted: "#6f6a85"
+  accent: "#7c3aed"
+  accentContrast: "#ffffff"
+  border: "#ffffff" # a light hairline that reads as a frosted edge
+  font: rounded
+  radius: 1.25rem
+# A very pale, slowly-drifting pastel wash — soft, not gaudy.
+background:
+  kind: pastel-mesh
+  stops: ["#e3ddf7", "#dcf2e8", "#dfeafb", "#f7e3ee"] # faint violet / mint / sky / pink
+  blur: 60
+  animate: true
+# Frosted, translucent panels across the whole card (links, blocks, socials, …).
+buttons:
+  fill: glass
+  glassFillOpacity: 0.4

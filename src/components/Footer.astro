@@ -1,0 +1,92 @@
+---
+// The footer attribution badge: "Powered by LibCard · <Name> theme by <author>".
+//
+//  • "Powered by LibCard" — shown unless footer.poweredBy is false (MIT core,
+//    so it's removable goodwill).
+//  • "<Name> theme by <author>" — credits the ACTIVE theme by name (linked to
+//    its source file in the gallery) and its author (linked to authorUrl). Shown
+//    unless footer.themeCredit is false AND the theme's license permits removal
+//    (permissive licenses); a CC-BY theme keeps its credit regardless.
+//
+// The credit carries id="lc-theme-by" so the live switcher can update both the
+// theme name and the author as you cycle.
+import { getConfig, getActiveTheme, hasLiveEmbeds, getAnalytics } from "../lib/config";
+import { getThemeMeta, licenseRequiresAttribution, LIBCARD_REPO, themeSourceUrl } from "../lib/themes";
+
+const cfg = await getConfig();
+const active = await getActiveTheme();
+const meta = getThemeMeta(active.name);
+
+const poweredBy = cfg.footer.poweredBy;
+// Coarse, non-identifying attribution on the badge link. It ships no JS and sets
+// no cookies. The real signal is the click's Referer header, which shows up under
+// the repo's Insights → Traffic → "Referring sites" — so the badge link keeps
+// rel="noopener" (security) but drops "noreferrer" so the referring card is
+// visible. The ?ref tag is just an explicit breadcrumb; nothing per-visitor is
+// tracked. (The theme-credit link below keeps noreferrer; only this one needs it.)
+const poweredByHref = `${LIBCARD_REPO}?ref=card`;
+// Be honest about the one place the "nothing tracks you" promise has an asterisk:
+// a live embed (video/booking/map/…) loads third-party content in its iframe.
+// Video defaults to a click-to-load facade, so nothing loads until interaction.
+const liveEmbeds = hasLiveEmbeds(cfg);
+// Honest one-liner when cookieless analytics is on — same spirit as the live-
+// embed disclosure above. Only shown when the owner opted in; never by default.
+const analytics = await getAnalytics();
+
+// Show the credit if the owner kept it on, or the license demands it.
+const showCredit =
+  !!meta && (cfg.footer.themeCredit || licenseRequiresAttribution(meta.license));
+const sep = poweredBy ? " · " : "";
+---
+<footer class="mt-10 text-center text-xs text-muted">
+  <p>
+    {
+      poweredBy && (
+        <a
+          href={poweredByHref}
+          target="_blank"
+          rel="noopener"
+          class="underline-offset-4 hover:text-accent hover:underline"
+        >
+          Powered by LibCard
+        </a>
+      )
+    }
+    <span id="lc-theme-by" hidden={!showCredit}>
+      {sep}
+      <a
+        href={meta ? themeSourceUrl(meta.file) : LIBCARD_REPO}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="underline-offset-4 hover:text-accent hover:underline"
+      >
+        {meta?.name}
+      </a>{" "}
+      theme by{" "}
+      {
+        meta?.authorUrl ? (
+          <a
+            href={meta.authorUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="underline-offset-4 hover:text-accent hover:underline"
+          >
+            {meta?.author}
+          </a>
+        ) : (
+          <span>{meta?.author}</span>
+        )
+      }
+    </span>
+  </p>
+  {
+    liveEmbeds && (
+      <p class="mt-1 text-[0.7rem] text-muted/80">Some embedded content loads from third parties.</p>
+    )
+  }
+  {
+    analytics && (
+      <p class="mt-1 text-[0.7rem] text-muted/80">This page counts anonymous visits — no cookies, no personal data.</p>
+    )
+  }
+</footer>

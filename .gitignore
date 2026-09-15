@@ -1,0 +1,40 @@
+# ---- OS junk ----
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ---- Editors / IDEs ----
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ---- Claude Code (keep shared skills, ignore local settings) ----
+.claude/settings.local.json
+
+# ---- Node tooling (pnpm) ----
+node_modules/
+pnpm-debug.log*
+.pnpm-store/
+.cache/
+
+# ---- Build output (Astro / Vite) ----
+dist/
+.astro/
+.tmp/
+
+# ---- Generated theme previews (rebuilt by `pnpm run shoot-themes` / theme CI) ----
+themes/.previews/
+
+# ---- Env / secrets ----
+.env
+.env.local
+.env.*.local
+
+# Playwright MCP scratch output
+.playwright-mcp/

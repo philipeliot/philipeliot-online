@@ -1,0 +1,425 @@
+[
+  {
+    "slug": "default",
+    "name": "Default",
+    "file": "default.yaml",
+    "author": "@crs48",
+    "authorUrl": "https://github.com/crs48",
+    "license": "MIT",
+    "official": true,
+    "mode": "light",
+    "tags": [
+      "light",
+      "clean",
+      "blue"
+    ],
+    "description": "Clean, bright, and neutral — the safe default.",
+    "preview": "themes/.previews/default.png",
+    "tokens": {
+      "bg": "#f1f5f9",
+      "surface": "#ffffff",
+      "fg": "#0f172a",
+      "muted": "#64748b",
+      "accent": "#2563eb",
+      "accentContrast": "#ffffff",
+      "border": "#e2e8f0",
+      "font": "sans",
+      "radius": "1rem"
+    },
+    "background": null,
+    "pattern": null,
+    "buttons": {
+      "fill": "solid",
+      "glassFillOpacity": 0.18
+    }
+  },
+  {
+    "slug": "dawn",
+    "name": "Dawn",
+    "file": "dawn.yaml",
+    "author": "@crs48",
+    "authorUrl": "https://github.com/crs48",
+    "license": "MIT",
+    "official": true,
+    "mode": "light",
+    "tags": [
+      "light",
+      "warm",
+      "sunrise",
+      "glass",
+      "soft"
+    ],
+    "description": "A soft sunrise haze of peach and amber behind frosted glass.",
+    "preview": "themes/.previews/dawn.png",
+    "tokens": {
+      "bg": "#fdf4ee",
+      "surface": "#ffffff",
+      "fg": "#3c2a26",
+      "muted": "#7e5e54",
+      "accent": "#c4316a",
+      "accentContrast": "#ffffff",
+      "border": "#ffffff",
+      "font": "rounded",
+      "radius": "1.25rem"
+    },
+    "background": {
+      "kind": "pastel-mesh",
+      "stops": [
+        "#ffe1d0",
+        "#ffe9c9",
+        "#ffd9e3",
+        "#fce3c5"
+      ],
+      "blur": 60,
+      "animate": true
+    },
+    "pattern": null,
+    "buttons": {
+      "fill": "glass",
+      "glassFillOpacity": 0.4
+    }
+  },
+  {
+    "slug": "dusk",
+    "name": "Dusk",
+    "file": "dusk.yaml",
+    "author": "@crs48",
+    "authorUrl": "https://github.com/crs48",
+    "license": "MIT",
+    "official": true,
+    "mode": "dark",
+    "tags": [
+      "dark",
+      "aurora",
+      "gradient",
+      "glass",
+      "calm"
+    ],
+    "description": "Deep twilight aurora behind smoked-glass panels.",
+    "preview": "themes/.previews/dusk.png",
+    "tokens": {
+      "bg": "#0c1024",
+      "surface": "#161b33",
+      "fg": "#eef1ff",
+      "muted": "#a7b0d0",
+      "accent": "#9aa8ff",
+      "accentContrast": "#0c1024",
+      "border": "#2a3358",
+      "font": "sans",
+      "radius": "1.25rem"
+    },
+    "background": {
+      "kind": "pastel-mesh",
+      "stops": [
+        "#3b2a6b",
+        "#1f4b6b",
+        "#4a2a5e",
+        "#23485e"
+      ],
+      "blur": 60,
+      "animate": true
+    },
+    "pattern": null,
+    "buttons": {
+      "fill": "glass",
+      "glassFillOpacity": 0.4
+    }
+  },
+  {
+    "slug": "frost",
+    "name": "Frost",
+    "file": "frost.yaml",
+    "author": "@crs48",
+    "authorUrl": "https://github.com/crs48",
+    "license": "MIT",
+    "official": true,
+    "mode": "light",
+    "tags": [
+      "light",
+      "pastel",
+      "gradient",
+      "glass",
+      "soft"
+    ],
+    "description": "A soft, frosted pastel wash with translucent glass panels.",
+    "preview": "themes/.previews/frost.png",
+    "tokens": {
+      "bg": "#f5f6fb",
+      "surface": "#ffffff",
+      "fg": "#2c2740",
+      "muted": "#6f6a85",
+      "accent": "#7c3aed",
+      "accentContrast": "#ffffff",
+      "border": "#ffffff",
+      "font": "rounded",
+      "radius": "1.25rem"
+    },
+    "background": {
+      "kind": "pastel-mesh",
+      "stops": [
+        "#e3ddf7",
+        "#dcf2e8",
+        "#dfeafb",
+        "#f7e3ee"
+      ],
+      "blur": 60,
+      "animate": true
+    },
+    "pattern": null,
+    "buttons": {
+      "fill": "glass",
+      "glassFillOpacity": 0.4
+    }
+  },
+  {
+    "slug": "midnight",
+    "name": "Midnight",
+    "file": "midnight.yaml",
+    "author": "@crs48",
+    "authorUrl": "https://github.com/crs48",
+    "license": "MIT",
+    "official": true,
+    "mode": "dark",
+    "tags": [
+      "dark",
+      "high-contrast",
+      "indigo"
+    ],
+    "description": "Deep navy with an indigo accent — easy on the eyes at night.",
+    "preview": "themes/.previews/midnight.png",
+    "tokens": {
+      "bg": "#0b1120",
+      "surface": "#131c31",
+      "fg": "#e8edf7",
+      "muted": "#94a3b8",
+      "accent": "#5457e6",
+      "accentContrast": "#ffffff",
+      "border": "#24304a",
+      "font": "sans",
+      "radius": "1rem"
+    },
+    "background": null,
+    "pattern": null,
+    "buttons": {
+      "fill": "solid",
+      "glassFillOpacity": 0.18
+    }
+  },
+  {
+    "slug": "mist",
+    "name": "Mist",
+    "file": "mist.yaml",
+    "author": "@crs48",
+    "authorUrl": "https://github.com/crs48",
+    "license": "MIT",
+    "official": true,
+    "mode": "light",
+    "tags": [
+      "light",
+      "neutral",
+      "minimal",
+      "glass",
+      "calm"
+    ],
+    "description": "A barely-there grey-blue fog behind clean frosted glass.",
+    "preview": "themes/.previews/mist.png",
+    "tokens": {
+      "bg": "#f3f5f8",
+      "surface": "#ffffff",
+      "fg": "#272b33",
+      "muted": "#6b7280",
+      "accent": "#2f6d80",
+      "accentContrast": "#ffffff",
+      "border": "#ffffff",
+      "font": "sans",
+      "radius": "1rem"
+    },
+    "background": {
+      "kind": "pastel-mesh",
+      "stops": [
+        "#e6ebf2",
+        "#e9eef0",
+        "#eaeef5",
+        "#edf0f3"
+      ],
+      "blur": 60,
+      "animate": true
+    },
+    "pattern": null,
+    "buttons": {
+      "fill": "glass",
+      "glassFillOpacity": 0.45
+    }
+  },
+  {
+    "slug": "mono",
+    "name": "Mono",
+    "file": "mono.yaml",
+    "author": "@crs48",
+    "authorUrl": "https://github.com/crs48",
+    "license": "MIT",
+    "official": true,
+    "mode": "light",
+    "tags": [
+      "light",
+      "minimal",
+      "monospace"
+    ],
+    "description": "Minimal black & white with a monospace voice.",
+    "preview": "themes/.previews/mono.png",
+    "tokens": {
+      "bg": "#ffffff",
+      "surface": "#ffffff",
+      "fg": "#111111",
+      "muted": "#6b7280",
+      "accent": "#111111",
+      "accentContrast": "#ffffff",
+      "border": "#111111",
+      "font": "mono",
+      "radius": "0.25rem"
+    },
+    "background": null,
+    "pattern": null,
+    "buttons": {
+      "fill": "solid",
+      "glassFillOpacity": 0.18
+    }
+  },
+  {
+    "slug": "ocean",
+    "name": "Ocean",
+    "file": "ocean.yaml",
+    "author": "@crs48",
+    "authorUrl": "https://github.com/crs48",
+    "license": "MIT",
+    "official": true,
+    "mode": "dark",
+    "tags": [
+      "dark",
+      "cool",
+      "cyan"
+    ],
+    "description": "Deep sea blues with a bright cyan accent.",
+    "preview": "themes/.previews/ocean.png",
+    "tokens": {
+      "bg": "#08131a",
+      "surface": "#0f2230",
+      "fg": "#e6f6ff",
+      "muted": "#8bb3c7",
+      "accent": "#22d3ee",
+      "accentContrast": "#04181f",
+      "border": "#163243",
+      "font": "sans",
+      "radius": "1rem"
+    },
+    "background": null,
+    "pattern": null,
+    "buttons": {
+      "fill": "solid",
+      "glassFillOpacity": 0.18
+    }
+  },
+  {
+    "slug": "paper",
+    "name": "Paper",
+    "file": "paper.yaml",
+    "author": "@crs48",
+    "authorUrl": "https://github.com/crs48",
+    "license": "MIT",
+    "official": true,
+    "mode": "light",
+    "tags": [
+      "light",
+      "warm",
+      "serif"
+    ],
+    "description": "Warm off-white with a serif voice — like a printed card.",
+    "preview": "themes/.previews/paper.png",
+    "tokens": {
+      "bg": "#faf6ef",
+      "surface": "#fffdf8",
+      "fg": "#2b2620",
+      "muted": "#6f6657",
+      "accent": "#b4541f",
+      "accentContrast": "#fffdf8",
+      "border": "#e7ddcb",
+      "font": "serif",
+      "radius": "0.5rem"
+    },
+    "background": null,
+    "pattern": null,
+    "buttons": {
+      "fill": "solid",
+      "glassFillOpacity": 0.18
+    }
+  },
+  {
+    "slug": "sunset",
+    "name": "Sunset",
+    "file": "sunset.yaml",
+    "author": "@crs48",
+    "authorUrl": "https://github.com/crs48",
+    "license": "MIT",
+    "official": true,
+    "mode": "dark",
+    "tags": [
+      "dark",
+      "warm",
+      "pink"
+    ],
+    "description": "Dusky plum with a warm coral accent.",
+    "preview": "themes/.previews/sunset.png",
+    "tokens": {
+      "bg": "#1c1117",
+      "surface": "#2a1a22",
+      "fg": "#fdefe6",
+      "muted": "#d7a99b",
+      "accent": "#fb7185",
+      "accentContrast": "#2a1015",
+      "border": "#43242f",
+      "font": "sans",
+      "radius": "1.25rem"
+    },
+    "background": null,
+    "pattern": null,
+    "buttons": {
+      "fill": "solid",
+      "glassFillOpacity": 0.18
+    }
+  },
+  {
+    "slug": "terminal",
+    "name": "Terminal",
+    "file": "terminal.yaml",
+    "author": "@crs48",
+    "authorUrl": "https://github.com/crs48",
+    "license": "MIT",
+    "official": true,
+    "mode": "dark",
+    "tags": [
+      "dark",
+      "green",
+      "monospace",
+      "retro"
+    ],
+    "description": "Green-on-black, like a friendly old CRT.",
+    "preview": "themes/.previews/terminal.png",
+    "tokens": {
+      "bg": "#0a0e0a",
+      "surface": "#0f160f",
+      "fg": "#4ade80",
+      "muted": "#5fae7f",
+      "accent": "#22c55e",
+      "accentContrast": "#03130a",
+      "border": "#1c2b1c",
+      "font": "mono",
+      "radius": "0.125rem"
+    },
+    "background": null,
+    "pattern": null,
+    "buttons": {
+      "fill": "solid",
+      "glassFillOpacity": 0.18
+    }
+  }
+]
