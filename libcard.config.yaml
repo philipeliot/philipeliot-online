@@ -6,7 +6,7 @@ profile:
   location: Athens, Greece
 
 contact:
-  email: writingbyphil@gmail.com
+  email: philipeliothello@gmail.com
   title: Writer · Designer · Digital/Tech Support
   website: https://philipeliot.online
 
@@ -19,12 +19,12 @@ links:
     url: https://writingbyphil.com
     icon: globe
 
-  - label: Graphic Design | DesignByPhil.com.com
-    url: https://bookzio.com
+  - label: Graphic Design | DesignByPhil.com
+    url: https://designbyphil.com
     icon: globe
 
   - label: English Tutor | EnglishTutor.site
-    url: https://bookzio.com
+    url: https://englishtutor.site
     icon: globe
 
   - label: Online Publishing | Bookzio.com
@@ -39,21 +39,19 @@ blocks:
     text: A useful all-rounder
 
   - type: text
-    markdown: >
-      Native British English speaker based in Athens, with a long background across writing,
-      copywriting, design and art direction, online publishing, customer communication,
-      digital marketing, websites and technical problem-solving.
+    markdown: |
+      Native British English speaker based in Athens, with a long background across writing, copywriting, design and art direction, online publishing, customer communication, digital marketing, websites and technical problem-solving.
 
-      I am open to freelance, part-time and full-time work, including writing and editing,
-      English teaching, design, customer support, digital work and practical tech support.
+      I am open to freelance, part-time and full-time work, including writing and editing, English teaching, design, customer support, digital work and practical tech support.
 
   - type: divider
     label: CVs & experience
 
   - type: text
-    markdown: >
-      I have tailored CVs covering customer support & communications, digital marketing,
-      technical support, and copywriting & creative work. Full CVs are available on request.
+    markdown: |
+      I have tailored CVs covering customer support & communications, digital marketing, technical support, and copywriting & creative work.
+
+      Full CVs are available on request.
 
   - type: divider
     label: Contact
