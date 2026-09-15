@@ -15,11 +15,15 @@ socials:
     url: https://www.linkedin.com/in/philip-eliot-copywriter/
 
 links:
-  - label: Writing & Copywriting — Writing By Phil
+  - label: Writing & Copywriting | WritingByPhil.com
     url: https://writingbyphil.com
     icon: globe
 
-  - label: Online Publishing — Bookzio
+  - label: Graphic Design | DesignByPhil.com.com
+    url: https://bookzio.com
+    icon: globe
+
+  - label: Online Publishing | Bookzio.com
     url: https://bookzio.com
     icon: globe
 
